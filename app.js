@@ -45,3 +45,25 @@ function mostrarAmigos(){
         listaAmigos.innerHTML += `<li>${amigo}</li>`;
     }
 }
+
+// Creamos una función para sortear un amigo al azar
+function sortearAmigo(){
+    // Validamos que haya al menos un amigo en la lista
+    if (amigos.length === 0){
+        alert("Por favor, agrega al menos un amigo para sortear.");
+        return; // Detenemos la ejecución si no hay amigos
+    }
+
+    // Generamos un índice aleatorio basado en la longitud del arreglo de amigos
+    // Math.random() genera un número entre 0 y 1
+    // Multiplicamos por la longitud del arreglo para obtener un rango adecuado
+    // Math.floor() redondea hacia abajo para obtener un índice entero
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length)
+
+    // Obtenemos el nombre del amigo sorteado usando el índice aleatorio
+    const amigoSorteado = amigos[indiceAleatorio];
+
+    // Mostramos el resultado del sorteo
+    const resultadoHTML = document.getElementById("resultado" );
+    resultadoHTML.innerHTML = `El amigo sorteado es: <strong>${amigoSorteado}</strong>`;
+}
